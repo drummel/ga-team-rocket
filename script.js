@@ -7,8 +7,6 @@ var canvas = document.getElementById("myCanvas");
 
 var HUE_MIN = 0;
 var HUE_MAX = 360;
-// const HUE_ROTATION_MIN = 10;
-// const HUE_ROTATION_MAX = 60;
 
 var SATURATION_MIN = 0.92;
 var SATURATION_MAX = 1.00;
@@ -21,6 +19,15 @@ function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+function useMarshmallowMotif() {
+  HUE_MIN = 0;
+  HUE_MAX = 360;
+  SATURATION_MIN = 0.10;
+  SATURATION_MAX = 0.30;
+  BRIGHTNESS_MIN = 0.95;
+  BRIGHTNESS_MAX = 1.00; 
+}
+
 function getRandomColor() {
   hue = randomInRange(HUE_MIN, HUE_MAX);
   brightness = randomInRange(BRIGHTNESS_MIN, BRIGHTNESS_MAX);
@@ -31,6 +38,7 @@ function getRandomColor() {
     brightness = brightness * 0.25;
   }
 }
+useMarshmallowMotif();
 getRandomColor();
 canvas.addEventListener("click", getRandomColor)
 
