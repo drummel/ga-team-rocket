@@ -4,6 +4,9 @@ var hue;
 var brightness;
 var saturation;
 var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext('2d');
+var paperScope = PaperScope.get(1);
+paperScope.activate();
 
 var HUE_MIN = 0;
 var HUE_MAX = 360;
@@ -48,10 +51,15 @@ function onMouseMove(event) {
 		center: event.middlePoint,
 		radius: Math.floor(Math.random() * 30) + 5
 	})
-  console.log(event.count)
   path.fillColor = {
     hue: hue,
     saturation: saturation,
     brightness: brightness
   }
 }
+
+function clearCanvas() {
+  paperScope.project.clear();
+}
+var clearButton = document.getElementById('clear');
+clearButton.addEventListener("click", clearCanvas);
