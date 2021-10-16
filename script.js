@@ -1,22 +1,25 @@
-tool.fixedDistance = 30
-var layer = project.activeLayer
+tool.fixedDistance = 30;
+var layer = project.activeLayer;
+var  hue = 90;
+var canvas = document.getElementById("myCanvas")
+canvas.addEventListener("click", getRandomColor)
 
 function getRandomColor() {
-  var letters = '0123456789ABCDEF'
-  var color = '#'
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)]
-  }
-  return color
+ 
+  hue = 7 
 }
+ 
+ 
+
 
 function onMouseMove(event) {
   var path = new Path.Circle({
 		center: event.middlePoint,
 		radius: Math.floor(Math.random() * 30) + 5
 	})
+  console.log(event.count)
   path.fillColor = {
-    hue: event.count * 3,
+    hue: hue,
     saturation: 1,
     brightness: 1
   }
