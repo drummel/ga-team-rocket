@@ -19,6 +19,14 @@ function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+function usePrimaryMotif() {
+  HUE_MIN = 0;
+  HUE_MAX = 360;
+  SATURATION_MIN = 0.92;
+  SATURATION_MAX = 1.0;
+  BRIGHTNESS_MIN = 0.51;
+  BRIGHTNESS_MAX = .85; 
+}
 function useMarshmallowMotif() {
   HUE_MIN = 0;
   HUE_MAX = 360;
@@ -26,6 +34,35 @@ function useMarshmallowMotif() {
   SATURATION_MAX = 0.30;
   BRIGHTNESS_MIN = 0.95;
   BRIGHTNESS_MAX = 1.00; 
+}
+function useClaypotMotif() {
+  HUE_MIN = 109;
+  HUE_MAX = 0;
+  SATURATION_MIN = 0.06;
+  SATURATION_MAX = .22;
+  BRIGHTNESS_MIN = 0.16;
+  BRIGHTNESS_MAX = 1; 
+}
+function usePurpleraintMotif() {
+  HUE_MIN = 242;
+  HUE_MAX = 313;
+  SATURATION_MIN = 0.65;
+  SATURATION_MAX = 0.7;
+  BRIGHTNESS_MIN = 0.34;
+  BRIGHTNESS_MAX = 0.46; 
+}
+
+function getRadomPalette() {
+  i=Math.random() * 4;
+ if (i < 1){
+    usePrimaryMotif() 
+  } else if (i < 2) {
+    useMarshmallowMotif()
+  } else if (i < 3) {
+    useClaypotMotif()
+  } else {
+    usePurpleraintMotif()
+  }
 }
 
 function getRandomColor() {
@@ -38,7 +75,7 @@ function getRandomColor() {
     brightness = brightness * 0.25;
   }
 }
-useMarshmallowMotif();
+getRadomPalette();
 getRandomColor();
 canvas.addEventListener("click", getRandomColor)
 
